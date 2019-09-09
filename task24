@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        static int count = 0;
+        public static void Main(string[] args)
+        {
+            FindTheAnswer(new int[10], 0);
+        }
+        private static void FindTheAnswer(int[] array, int pos)
+        {
+
+            if (pos == array.Length)
+            {
+                count++;
+                if (count == 1000000)
+                    foreach (var element in array)
+                    {
+                        Console.Write(element + " ");
+                    }
+                return;
+            }
+
+            for (var i = 0; i < array.Length; i++)
+            {
+                var flag = false;
+                for (var j = 0; j < pos; j++)
+                    if (array[j] == i)
+                    {
+                        flag = true;
+                        break;
+                    }
+                if (flag) continue;
+                array[pos] = i;
+                FindTheAnswer(array, pos + 1);
+            }
+        }
+    }
+}
