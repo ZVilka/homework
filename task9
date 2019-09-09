@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+Задача 9
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public class Program
+    {
+
+        public static void Main(string[] args)
+        {
+            Console.WriteLine(FindTheAnswer());
+        }
+        private static int FindTheAnswer()
+        {
+            var answer = 0;
+            for (var a = 1; a <= 333; a++)
+                for (var b = 1 + a; b <= 499; b++)
+                {
+                    var c = 1000 - a - b;
+                    if (c == Math.Sqrt(a * a + b * b))
+                    {
+                        answer = a * b * c;
+                    }
+                }
+            return answer;
+        }
+    }
+}
