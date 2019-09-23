@@ -1,0 +1,17 @@
+max = 0
+for i in range(999, 99, -1):
+    for j in range(999, 99, -1):
+        s = str(i * j)
+        length = len(s)
+        if length % 2 == 0:
+            s1 = s[:length//2]
+            s2 = s[length//2:]
+            s2 = s2[::-1]
+        else:
+            s1 = s[:length//2]
+            s2 = s[length//2+1:]
+            s2 = s2[::-1]
+        if s1 == s2:
+            if i * j > max:
+                max = i * j
+print(max)
