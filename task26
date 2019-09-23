@@ -1,0 +1,19 @@
+def get_period(denominator):
+    remainder = 1
+    remainders = []
+    period_array = []
+    while remainder not in remainders:
+        remainders.append(remainder)
+        period_array.append(remainder * 10 // denominator)
+        remainder = remainder * 10 % denominator
+    period = ""
+    for element in period_array:
+        period += str(element)
+    return period
+
+
+max_length = 0
+for i in range(3, 1000, 2):
+    if len(get_period(i)) > max_length:
+        max_length = i
+print(max_length)
